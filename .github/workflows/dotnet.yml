@@ -1,0 +1,44 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: Build dotnet package
+
+on:
+  push:
+    tags:
+      - '*'   
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set env
+      run: echo ("TAG=" + ($env:GITHUB_REF -replace 'refs/.+/', '')) >> $env:GITHUB_ENV
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 8.0.x
+
+    - name: Restore dependencies
+      run: dotnet restore -r win-x64
+
+    - name: Build
+      run:  dotnet publish ./PalworldTrainer --no-restore --configuration Release -o "${{ env.TAG }}"
+
+    #- name: Pack files
+    #  run: 7z a -tzip "test_release.zip" "./test_rel/*"
+
+    - name: Publish
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: "${{ env.TAG }}"
+        files: "${{ env.TAG }}/*.exe"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Delete output directory
+      run: rm -r "${{ env.TAG }}"

@@ -1,0 +1,51 @@
+﻿<Window x:Class="PalworldTrainer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PalworldTrainer"
+        mc:Ignorable="d"
+        Title="Palworld Trainer" Height="450" Width="800">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="/bg.png"/>
+        </Grid.Background>
+        <Button Content="Start" Grid.Row="1" Grid.Column="1" Click="Button_Click" Name="startStopBtn" FontFamily="Consolas" FontSize="14"/>
+
+        <Grid Grid.Row="0" Grid.Column="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="4*"/>
+            </Grid.RowDefinitions>
+            <Label Content="Ammo" Grid.Row="1" Grid.Column="0" VerticalContentAlignment="Top" HorizontalContentAlignment="Right" Padding="0,4,5,0" FontFamily="Consolas" FontSize="16"/>
+            <TextBox Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" Text="500"  Name="ammoTxt" Background="#FFE0E0E0" TextAlignment="Center" VerticalAlignment="Center" FontFamily="Consolas" FontSize="16"/>
+
+            <Label Content="Weapon durability" Grid.Row="2" Grid.Column="0" VerticalContentAlignment="Top" HorizontalContentAlignment="Right" Padding="0,4,5,0" FontFamily="Consolas" FontSize="16"/>
+            <TextBox Grid.Row="2" Grid.Column="1" TextWrapping="Wrap" Text="1000"  Name="weaponDurTxt" Background="#FFE0E0E0" TextAlignment="Center" VerticalAlignment="Center" FontFamily="Consolas" FontSize="16"/>
+
+        </Grid>
+
+        <ScrollViewer Name="scroller" Grid.ColumnSpan="3" Grid.Row="2" Background="#FF191919" OpacityMask="#E5000000" Padding="10,5,10,5" Margin="10,10,10,10">
+            <TextBlock Name="logText" TextWrapping="Wrap" Text=""/>
+        </ScrollViewer>
+
+    </Grid>
+</Window>

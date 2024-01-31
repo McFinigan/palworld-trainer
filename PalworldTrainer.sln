@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PalworldTrainer", "PalworldTrainer\PalworldTrainer.csproj", "{FFF055C6-AD68-4317-B53F-C8F2F5207B55}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FFF055C6-AD68-4317-B53F-C8F2F5207B55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFF055C6-AD68-4317-B53F-C8F2F5207B55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFF055C6-AD68-4317-B53F-C8F2F5207B55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFF055C6-AD68-4317-B53F-C8F2F5207B55}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {86F44A8B-6E31-4C5E-A405-9B4A36CD6F72}
+	EndGlobalSection
+EndGlobal
