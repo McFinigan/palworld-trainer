@@ -23,6 +23,17 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore --configuration Release
+      run: dotnet publish --no-restore --configuration Release -o "test_rel"
     #- name: Test
     #  run: dotnet test --no-build --verbosity normal
+    - name: Pack files
+      run: 7z a -tzip "test_release.zip" "./test_rel/*"
+    - name: Delete output directory
+      run: rm -r "test_rel"
+
+    - name: Publish
+      uses: softprops/action-gh-release@v1
+      with:
+        files: "test_release.zip"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
