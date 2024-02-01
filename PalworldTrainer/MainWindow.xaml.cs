@@ -25,11 +25,11 @@ namespace PalworldTrainer
 
         // Offsets of pointers to traverse to get ammo address
         static readonly long[] ammoArr = { 0x10, 0x1A0, 0x200, 0x30, 0x478, 0x4B0, 0x7C };
-        const Int32 AMMO_STATIC_OFFSET = 0x8872898;
+        const Int32 AMMO_STATIC_OFFSET = 0x0894DEC0;
         const Int32 DEFAULT_AMMO_VALUE = 500;
         Int32 ammoValue = DEFAULT_AMMO_VALUE;
 
-        const Int32 WEAPON_DUR_STATIC_OFFSET = 0x08908190;
+        const Int32 WEAPON_DUR_STATIC_OFFSET = 0x08357700;
         const float DEFAULT_WEAPON_DUR_VALUE = 1000;
         float weaponDurValue = DEFAULT_WEAPON_DUR_VALUE;
 
@@ -205,12 +205,12 @@ namespace PalworldTrainer
             nint addr = baseAddr + AMMO_STATIC_OFFSET;
 
             ReadProcessMemory((int)procHandle, addr, buffer, buffer.Length, ref bytesRead);
-            ReadProcessMemory((int)procHandle, ToInt64(buffer) + 0x10, buffer, buffer.Length, ref bytesRead);
-            ReadProcessMemory((int)procHandle, ToInt64(buffer) + 0x1A0, buffer, buffer.Length, ref bytesRead);
-            ReadProcessMemory((int)procHandle, ToInt64(buffer) + 0x200, buffer, buffer.Length, ref bytesRead);
-            ReadProcessMemory((int)procHandle, ToInt64(buffer) + 0x30, buffer, buffer.Length, ref bytesRead);
-            ReadProcessMemory((int)procHandle, ToInt64(buffer) + 0x478, buffer, buffer.Length, ref bytesRead);
-            ReadProcessMemory((int)procHandle, ToInt64(buffer) + 0x4B0, buffer, buffer.Length, ref bytesRead);
+            ReadProcessMemory((int)procHandle, ToInt64(buffer) + 0x0, buffer, buffer.Length, ref bytesRead);
+            ReadProcessMemory((int)procHandle, ToInt64(buffer) + 0x20, buffer, buffer.Length, ref bytesRead);
+            ReadProcessMemory((int)procHandle, ToInt64(buffer) + 0x210, buffer, buffer.Length, ref bytesRead);
+            ReadProcessMemory((int)procHandle, ToInt64(buffer) + 0x120, buffer, buffer.Length, ref bytesRead);
+            ReadProcessMemory((int)procHandle, ToInt64(buffer) + 0x470, buffer, buffer.Length, ref bytesRead);
+            ReadProcessMemory((int)procHandle, ToInt64(buffer) + 0x4A0, buffer, buffer.Length, ref bytesRead);
 
             return ToInt64(buffer) + 0x7C;
         }
@@ -241,12 +241,11 @@ namespace PalworldTrainer
             nint addr = baseAddr + WEAPON_DUR_STATIC_OFFSET;
 
             ReadProcessMemory((int)procHandle, addr, buffer, buffer.Length, ref bytesRead);
-            ReadProcessMemory((int)procHandle, ToInt64(buffer) + 0x30, buffer, buffer.Length, ref bytesRead);
-            ReadProcessMemory((int)procHandle, ToInt64(buffer) + 0x2D0, buffer, buffer.Length, ref bytesRead);
-            ReadProcessMemory((int)procHandle, ToInt64(buffer) + 0x210, buffer, buffer.Length, ref bytesRead);
-            ReadProcessMemory((int)procHandle, ToInt64(buffer) + 0x120, buffer, buffer.Length, ref bytesRead);
-            ReadProcessMemory((int)procHandle, ToInt64(buffer) + 0x470, buffer, buffer.Length, ref bytesRead);
-            ReadProcessMemory((int)procHandle, ToInt64(buffer) + 0x4B0, buffer, buffer.Length, ref bytesRead);
+            ReadProcessMemory((int)procHandle, ToInt64(buffer) + 0x170, buffer, buffer.Length, ref bytesRead);
+            ReadProcessMemory((int)procHandle, ToInt64(buffer) + 0x20, buffer, buffer.Length, ref bytesRead);
+            ReadProcessMemory((int)procHandle, ToInt64(buffer) + 0x20, buffer, buffer.Length, ref bytesRead);
+            ReadProcessMemory((int)procHandle, ToInt64(buffer) + 0x690, buffer, buffer.Length, ref bytesRead);
+            ReadProcessMemory((int)procHandle, ToInt64(buffer) + 0x140, buffer, buffer.Length, ref bytesRead);
 
             return ToInt64(buffer) + 0x70;
         }
